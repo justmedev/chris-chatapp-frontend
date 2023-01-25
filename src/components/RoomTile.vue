@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-import {Room} from "@/types/room";
+import {Room} from "../types/room";
 
 const props = withDefaults(defineProps<{
   room: Room,
