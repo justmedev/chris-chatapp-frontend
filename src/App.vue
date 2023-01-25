@@ -20,7 +20,6 @@ main {
   justify-content: center;
   display: flex;
   background: black;
-  // overflow-x: hidden;
 
   > .container {
     @media only screen and (max-width: $screen-small) {

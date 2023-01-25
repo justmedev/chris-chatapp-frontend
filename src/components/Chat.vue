@@ -1,14 +1,13 @@
 <template>
   <div class="container">
-    <div class="topbar">
-      <div class="name">{{ props.room.name }}</div>
-      <div class="online">Online: {{ props.room.online.map((r) => r.name).join(", ") }}</div>
+    <div>
+      <div class="topbar">
+        <div class="name">{{ props.room.name }}</div>
+        <div class="online">Online: {{ props.room.online.map((r) => r.name).join(", ") }}</div>
+      </div>
     </div>
 
-    <div class="input-container">
-      <input type="text">
-      <button>Send</button>
-    </div>
+
   </div>
 </template>
 
@@ -42,48 +41,13 @@ const props = defineProps<{
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   width: 100%;
   height: 100%;
   background: $gray--1;
-
-  > .input-container {
-    display: flex;
-    column-gap: .5em;
-    background: $gray;
-    padding: 10px;
-
-    > input {
-      width: 100%;
-      background-color: $gray--1;
-      border: none;
-      outline: none;
-      color: $gray-2;
-      font-weight: 550;
-      padding: 0 5px;
-      border-radius: 5px;
-
-      &:focus {
-        background-color: lighten($gray--1, 5);
-      }
-    }
-
-    > button {
-      background-color: $gray--2;
-      border-radius: 5px;
-      border: none;
-      color: $gray-2;
-      font-weight: 550;
-      padding: 7px 10px;
-      width: 50px;
-      transition: background-color 200ms ease-in-out;
-
-      &:hover {
-        cursor: pointer;
-        background-color: lighten($gray--1, 5);
-
-      }
-    }
-  }
 }
 
 </style>

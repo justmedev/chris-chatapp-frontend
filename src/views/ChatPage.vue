@@ -9,12 +9,19 @@
 
         <button @click="logout">Logout</button>
       </div>
-      <RoomTile :room="getActiveRoom()" active></RoomTile>
-      <RoomTile v-for="room in rooms.filter(r => !r.active)" :key="room.id" :room="room"/>
+      <div class="sidebar-inner">
+        <div>
+          <RoomTile :room="getActiveRoom()" active/>
+          <RoomTile v-for="room in rooms.filter(r => !r.active)" :key="room.id" :room="room"/>
+        </div>
+
+      </div>
     </div>
 
     <Chat :room="getActiveRoom()"/>
   </div>
+
+  <ChatBottomBar/>
 </template>
 
 <script setup lang="ts">
@@ -22,6 +29,7 @@ import { Ref, ref } from "vue";
 import RoomTile from "../components/RoomTile.vue";
 import { Room } from "../types/room";
 import Chat from "../components/Chat.vue";
+import ChatBottomBar from "../components/ChatBottomBar.vue";
 
 const rooms: Ref<Room[]> = ref([
   {
@@ -152,11 +160,23 @@ function getActiveRoom() {
   width: fit-content;
   background: $gray--2;
   height: 100%;
+
+  > .sidebar-inner {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: calc(100% - 62px);
+  }
+}
+
+.vertical-layout {
+  display: flex;
+  flex-direction: column;
 }
 
 .main-container {
   display: flex;
-  height: 100%;
+  height: calc(100% - 56px);
   width: 100%;
 }
 </style>
