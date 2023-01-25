@@ -1,6 +1,15 @@
-$container-width: 70%;
+$container-width-standart: 1200px;
+$container-width-full: 100%;
+
+$screen-smallest: 600px;
+$screen-smaller: 800px;
+$screen-small: 1000px;
+$screen: 1100px;
+$screen-large: 1500px;
+$screen-larger: 1920px;
+
 $transparent: rgba(0, 0, 0, 0);
-$content-height: calc(100vh - 122px);
+$content-height: calc(100vh - 62px);
 
 $gray--3: #12151b;
 $gray--2: #16181e;

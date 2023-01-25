@@ -19,10 +19,21 @@ main {
   height: 100%;
   justify-content: center;
   display: flex;
+  background: black;
+  // overflow-x: hidden;
 
   > .container {
-    width: $container-width;
+    @media only screen and (max-width: $screen-small) {
+      max-width: $container-width-full;
+      width: $container-width-full;
+    }
+
+    width: $container-width-standart;
+    max-width: $container-width-standart;
     height: $content-height;
+
+    text-overflow: ellipsis;
+    overflow-x: hidden;
   }
 }
 

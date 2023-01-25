@@ -33,6 +33,9 @@ const props = defineProps<{
   }
 
   > .online {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     margin-top: -8px;
     font-size: 14px;
   }
