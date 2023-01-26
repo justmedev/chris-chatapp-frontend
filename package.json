@@ -9,7 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@feathersjs/authentication-client": "^5.0.0-pre.35",
+    "@feathersjs/socketio-client": "^5.0.0-pre.35",
+    "@types/socket.io-client": "^3.0.0",
+    "install": "^0.13.0",
+    "npm": "^9.4.0",
     "sass": "^1.57.1",
+    "socket.io-client": "^4.5.4",
     "vue": "^3.2.45",
     "vue-router": "4"
   },
