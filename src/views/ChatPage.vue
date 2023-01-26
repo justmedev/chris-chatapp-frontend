@@ -20,8 +20,6 @@
 
     <Chat :room="getActiveRoom()"/>
   </div>
-
-  <ChatBottomBar/>
 </template>
 
 <script setup lang="ts">
@@ -29,7 +27,6 @@ import { Ref, ref } from "vue";
 import RoomTile from "../components/RoomTile.vue";
 import { Room } from "../types/room";
 import Chat from "../components/Chat.vue";
-import ChatBottomBar from "../components/ChatBottomBar.vue";
 
 const rooms: Ref<Room[]> = ref([
   {

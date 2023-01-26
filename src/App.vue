@@ -1,7 +1,7 @@
 <template>
   <Navbar/>
   <main>
-    <div class="container">
+    <div class="container" :class="{ 'center': route.name === 'chat' }">
       <router-view/>
     </div>
   </main>
@@ -9,6 +9,9 @@
 
 <script setup lang="ts">
 import Navbar from "./components/Navbar.vue";
+import {useRoute} from "vue-router";
+
+const route = useRoute();
 </script>
 
 <style scoped lang="scss">
@@ -19,7 +22,6 @@ main {
   height: 100%;
   justify-content: center;
   display: flex;
-  background: black;
 
   > .container {
     @media only screen and (max-width: $screen-small) {
@@ -33,6 +35,12 @@ main {
 
     text-overflow: ellipsis;
     overflow-x: hidden;
+  }
+
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
