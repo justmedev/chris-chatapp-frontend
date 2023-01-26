@@ -1,15 +1,15 @@
 <template>
-  <Navbar/>
+  <Navbar />
   <main>
-    <div class="container" :class="{ 'center': route.name === 'chat' }">
-      <router-view/>
+    <div class="container" :class="{ center: route.name === 'chat' }">
+      <router-view />
     </div>
   </main>
 </template>
 
 <script setup lang="ts">
-import Navbar from "./components/Navbar.vue";
-import {useRoute} from "vue-router";
+import { useRoute } from 'vue-router';
+import Navbar from './components/Navbar.vue';
 
 const route = useRoute();
 </script>

@@ -1,44 +1,50 @@
 <template>
   <div class="container">
     <div class="card">
-      <div class="title">Signup</div>
+      <div class="title">
+        Signup
+      </div>
       <div class="subtitle">
         Already have an account? Login
-        <router-link :to="{ name: 'login'}" style="color: black; text-decoration: underline">here</router-link>
+        <router-link :to="{ name: 'login' }" style="color: black; text-decoration: underline">
+          here
+        </router-link>
         .
       </div>
 
       <label for="username">Username</label>
-      <input type="text" id="username" ref="username">
+      <input id="username" ref="username" type="text">
 
       <label for="email">Email</label>
-      <input type="text" id="email" ref="email">
+      <input id="email" ref="email" type="text">
 
       <label for="password">Password</label>
-      <input type="password" id="password" ref="password">
+      <input id="password" ref="password" type="password">
 
-      <button @click="signup()">Submit</button>
+      <button @click="signup()">
+        Submit
+      </button>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
 
-import { Ref, ref } from "vue";
-import feathersClient, { JWTPayload } from "../feathers-client";
+import { Ref, ref } from 'vue';
+import feathersClient, { JWTPayload } from '../feathers-client';
 
 const username: Ref<HTMLInputElement | null> = ref(null);
 const email: Ref<HTMLInputElement | null> = ref(null);
 const password: Ref<HTMLInputElement | null> = ref(null);
 
 async function signup() {
-  await feathersClient.service("users").create({
+  await feathersClient.service('users').create({
     username: username.value?.value,
     email: email.value?.value,
     password: password.value?.value,
   } as JWTPayload).then(() => {
-    console.log("Account created!");
-  }).catch((e) => console.error("err: ", e));
+    console.log('Account created!');
+  }).catch((e) => console.error('err: ', e));
 }
 </script>
 

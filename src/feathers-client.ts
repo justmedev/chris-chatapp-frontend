@@ -1,8 +1,9 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { feathers } from '@feathersjs/feathers';
 import socketio from '@feathersjs/socketio-client';
 import io from 'socket.io-client';
-import config from "../config";
-import authentication from '@feathersjs/authentication-client'
+import authentication from '@feathersjs/authentication-client';
+import config from '../config';
 
 const socket = io(config.backend);
 const feathersClient = feathers();
@@ -18,7 +19,6 @@ export interface DatabaseEntry {
 export interface NullableDatabaseEntry {
     id?: number;
 }
-
 
 export interface JWTPayload {
     strategy?: 'local' | 'jwt';

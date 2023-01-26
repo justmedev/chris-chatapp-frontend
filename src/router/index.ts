@@ -1,34 +1,34 @@
-import HomePage from "../views/HomePage.vue";
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
-import ChatPage from "../views/ChatPage.vue";
-import LoginPage from "../views/LoginPage.vue";
-import SignupPage from "../views/SignupPage.vue";
+import HomePage from '../views/HomePage.vue';
+import ChatPage from '../views/ChatPage.vue';
+import LoginPage from '../views/LoginPage.vue';
+import SignupPage from '../views/SignupPage.vue';
 
 const routes: RouteRecordRaw[] = [
-    {
-        path: '/',
-        name: 'home',
-        component: HomePage
-    },
-    {
-        path: '/chat',
-        name: 'chat',
-        component: ChatPage
-    },
-    {
-        path: '/signup',
-        name: 'login',
-        component: LoginPage
-    },
-    {
-        path: '/signup',
-        name: 'signup',
-        component: SignupPage
-    },
+  {
+    path: '/',
+    name: 'home',
+    component: HomePage,
+  },
+  {
+    path: '/chat',
+    name: 'chat',
+    component: ChatPage,
+  },
+  {
+    path: '/signup',
+    name: 'login',
+    component: LoginPage,
+  },
+  {
+    path: '/signup',
+    name: 'signup',
+    component: SignupPage,
+  },
 ];
 
 const router = createRouter({
-    history: createWebHistory(),
-    routes,
+  history: createWebHistory(),
+  routes,
 });
 export default router;

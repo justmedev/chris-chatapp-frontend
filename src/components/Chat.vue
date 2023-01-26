@@ -2,21 +2,25 @@
   <div class="container">
     <div>
       <div class="topbar">
-        <div class="name">{{ props.room.name }}</div>
-        <div class="online">Online: {{ props.room.online.map((r) => r.name).join(", ") }}</div>
+        <div class="name">
+          {{ props.room.name }}
+        </div>
+        <div class="online">
+          Online: {{ props.room.online.map((r) => r.name).join(", ") }}
+        </div>
       </div>
     </div>
 
-
     <div class="input-container">
-      <input type="text">
+      <label for="inp" style="display: none">Message Input</label>
+      <input id="inp" type="text">
       <button>Send</button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { Room } from "../types/room";
+import { Room } from '../types/room';
 
 const props = defineProps<{
   room: Room;
@@ -53,7 +57,6 @@ const props = defineProps<{
   height: 100%;
   background: $gray--1;
 }
-
 
 .input-container {
   display: flex;

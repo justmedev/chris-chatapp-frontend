@@ -1,1 +1,1 @@
-export type Icons = 'arrow-right' | "plus";
+export type Icons = 'arrow-right' | 'plus';

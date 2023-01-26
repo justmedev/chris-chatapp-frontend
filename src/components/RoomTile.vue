@@ -1,21 +1,22 @@
 <template>
-  <div class="room" :class="{ 'active': active }">
+  <div class="room" :class="{ active: active }">
     <div>
-      <div class="name">{{ title }}</div>
+      <div class="name">
+        {{ title }}
+      </div>
       <div class="members">
         {{ getSubtitleFormatted(subtitle, "Member", "Members") }}
       </div>
     </div>
-
 
     <img :src="`/icons/${icon}.svg`" alt="arrow-right-icon" class="icon">
   </div>
 </template>
 
 <script lang="ts" setup>
-import {Room} from "../types/room";
-import {ref} from "vue";
-import {Icons} from "../types/generic";
+import { ref } from 'vue';
+import { Room } from '../types/room';
+import { Icons } from '../types/generic';
 
 const props = withDefaults(defineProps<{
   title?: string,
@@ -29,11 +30,11 @@ const props = withDefaults(defineProps<{
   icon: 'arrow-right',
 });
 
-const title = ref(props.room?.name ?? props.title ?? "ERR");
-const subtitle = ref(props.room?.members ?? props.subtitle ?? "ERR");
+const title = ref(props.room?.name ?? props.title ?? 'ERR');
+const subtitle = ref(props.room?.members ?? props.subtitle ?? 'ERR');
 
 function getSubtitleFormatted(subtitle: string | number, singular: string, plural: string) {
-  if (typeof subtitle == "number") return subtitle <= 1 ? `${subtitle} ${singular}` : `${subtitle} ${plural}`;
+  if (typeof subtitle === 'number') return subtitle <= 1 ? `${subtitle} ${singular}` : `${subtitle} ${plural}`;
   return subtitle;
 }
 </script>

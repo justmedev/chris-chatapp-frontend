@@ -1,15 +1,21 @@
 <template>
   <nav>
-    <div @click="pushRoute({ name: 'home' })">ChatApp</div>
-    <div @click="pushRoute({ name: 'home' })">Home</div>
-    <div @click="pushRoute({ name: 'chat' })">Chat</div>
+    <div @click="pushRoute({ name: 'home' })">
+      ChatApp
+    </div>
+    <div @click="pushRoute({ name: 'home' })">
+      Home
+    </div>
+    <div @click="pushRoute({ name: 'chat' })">
+      Chat
+    </div>
   </nav>
 </template>
 
 <script setup lang="ts">
-import {RouteLocationRaw, useRouter} from "vue-router";
+import { RouteLocationRaw, useRouter } from 'vue-router';
 
-const router = useRouter()
+const router = useRouter();
 
 function pushRoute(route: RouteLocationRaw) {
   router.push(route); // https://router.vuejs.org/guide/essentials/navigation.html
@@ -63,7 +69,6 @@ nav {
           margin-left: 0;
         }
       }
-
 
       &:not(:nth-child(2))::before {
         margin-right: 1em;

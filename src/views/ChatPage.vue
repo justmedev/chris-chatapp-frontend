@@ -7,28 +7,29 @@
           <span>Justme</span>
         </div>
 
-        <button @click="logout">Logout</button>
+        <button @click="logout">
+          Logout
+        </button>
       </div>
       <div class="sidebar-inner">
         <div>
-          <RoomTile :room="getActiveRoom()" active/>
-          <RoomTile v-for="room in rooms.filter(r => !r.active)" :key="room.id" :room="room"/>
+          <RoomTile :room="getActiveRoom()" active />
+          <RoomTile v-for="room in rooms.filter(r => !r.active)" :key="room.id" :room="room" />
 
           <RoomTile :room="null" title="Create Room" subtitle="Create a new room" icon="plus" />
         </div>
-
       </div>
     </div>
 
-    <Chat :room="getActiveRoom()"/>
+    <Chat :room="getActiveRoom()" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { Ref, ref } from "vue";
-import RoomTile from "../components/RoomTile.vue";
-import { Room } from "../types/room";
-import Chat from "../components/Chat.vue";
+import { Ref, ref } from 'vue';
+import RoomTile from '../components/RoomTile.vue';
+import { Room } from '../types/room';
+import Chat from '../components/Chat.vue';
 
 const rooms: Ref<Room[]> = ref([
   {
@@ -49,7 +50,7 @@ const rooms: Ref<Room[]> = ref([
         name: 'Chris',
         uuid: '3',
       },
-    ]
+    ],
   },
   {
     active: false,
@@ -66,45 +67,44 @@ const rooms: Ref<Room[]> = ref([
     online: [
       {
         name: 'Usman',
-        uuid: ''
+        uuid: '',
       },
       {
         name: 'Busman',
-        uuid: ''
+        uuid: '',
       },
       {
         name: 'Mussman',
-        uuid: ''
+        uuid: '',
       },
       {
         name: 'Kussmann',
-        uuid: ''
+        uuid: '',
       },
       {
         name: 'Lustmann',
-        uuid: ''
+        uuid: '',
       },
       {
         name: 'Coolmann',
-        uuid: ''
+        uuid: '',
       },
       {
         name: 'Flussmann',
-        uuid: ''
+        uuid: '',
       },
 
-
-    ]
-  }
+    ],
+  },
 ]);
 
 function logout() {
   // TODO: Actually logout and send user to home without token
-  console.log("Abmelden");
+  console.log('Abmelden');
 }
 
 function getActiveRoom() {
-  return rooms.value.filter(r => r.active)[0];
+  return rooms.value.filter((r) => r.active)[0];
 }
 </script>
 

@@ -14,6 +14,7 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2020,
   },
+  ignorePatterns: ['node_modules/**'],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
@@ -27,9 +28,15 @@ module.exports = {
     'linebreak-style': 'off',
     // '@typescript-eslint/no-shadow': 'off',
     'vue/max-attributes-per-line': 'off',
+    'vue/html-button-has-type': 'off',
+    'vue/multi-word-component-names': 'off',
+    'vuejs-accessibility/click-events-have-key-events': 'off',
+    'vue/require-default-prop': 'off',
   },
   settings: {
     'import/resolver': {
+      typescript: {},
+      moduleDirectory: ['src', 'node_modules'],
       alias: {
         map: [
           ['@', './src'],
