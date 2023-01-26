@@ -2497,11 +2497,6 @@ vue@^3.2.45:
     "@vue/server-renderer" "3.2.45"
     "@vue/shared" "3.2.45"
 
-vuetify@^3.1.2:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-3.1.2.tgz#93a632c6e943200cd6e4b63440f34e7c24eb88f0"
-  integrity sha512-vzxfVc1KlEmZ6tHjmrKCt25rKL6YkakbvQAZ0f/s03kHd0pjXKX4pcWuYgA5mZz4yrfZh/cRHvgGt+7A9CXOVg==
-
 walk-up-path@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/walk-up-path/-/walk-up-path-1.0.0.tgz#d4745e893dd5fd0dbb58dd0a4c6a33d9c9fec53e"
