@@ -26,13 +26,14 @@
 <script lang="ts" setup>
 
 import { Ref, ref } from 'vue';
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import feathersClient, { JWTPayload } from '../feathers-client';
 
 const email: Ref<HTMLInputElement | null> = ref(null);
 const password: Ref<HTMLInputElement | null> = ref(null);
 
 const router = useRouter();
+const route = useRoute();
 
 async function login() {
   await feathersClient.authenticate({
@@ -41,6 +42,14 @@ async function login() {
     password: password.value?.value,
   } as JWTPayload).then(() => {
     console.log('Logged in!');
+
+    if (route.query && Object.hasOwnProperty.call(route.query, 'redirect')) {
+      router.push({
+        path: route.query?.redirect as string ?? '/',
+      });
+      return;
+    }
+
     router.push({
       name: 'chat',
     });
