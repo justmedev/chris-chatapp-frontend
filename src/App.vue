@@ -1,15 +1,16 @@
-<script setup lang="ts">
-import Navbar from "./components/Navbar.vue";
-</script>
-
 <template>
-  <Navbar/>
-  <main>
-    <div class="container">
-      <router-view/>
-    </div>
-  </main>
+  <v-app>
+    <v-main>
+      <MainContainer>
+        <router-view/>
+      </MainContainer>
+    </v-main>
+  </v-app>
 </template>
+
+<script setup lang="ts">
+import MainContainer from "./components/MainContainer.vue";
+</script>
 
 <style scoped lang="scss">
 @import "vars";
