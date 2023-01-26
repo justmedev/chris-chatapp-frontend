@@ -1,26 +1,41 @@
 <template>
   <div class="room" :class="{ 'active': active }">
     <div>
-      <div class="name">{{ props.room.name }}</div>
+      <div class="name">{{ title }}</div>
       <div class="members">
-        {{ props.room.members }} {{ props.room.members <= 1 ? "Member" : "Members" }}
+        {{ getSubtitleFormatted(subtitle, "Member", "Members") }}
       </div>
     </div>
 
 
-    <img src="../assets/arrow-right.svg" alt="arrow-right-icon" class="icon">
+    <img :src="`/icons/${icon}.svg`" alt="arrow-right-icon" class="icon">
   </div>
 </template>
 
 <script lang="ts" setup>
 import {Room} from "../types/room";
+import {ref} from "vue";
+import {Icons} from "@/types/generic";
 
 const props = withDefaults(defineProps<{
-  room: Room,
+  title?: string,
+  subtitle?: string,
+  icon?: Icons,
+
+  room: Room | null,
   active: boolean,
 }>(), {
   active: false,
+  icon: 'arrow-right',
 });
+
+const title = ref(props.room?.name ?? props.title ?? "ERR");
+const subtitle = ref(props.room?.members ?? props.subtitle ?? "ERR");
+
+function getSubtitleFormatted(subtitle: string | number, singular: string, plural: string) {
+  if (typeof subtitle == "number") return subtitle <= 1 ? `${subtitle} ${singular}` : `${subtitle} ${plural}`;
+  return subtitle;
+}
 </script>
 
 <style scoped lang="scss">

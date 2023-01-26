@@ -13,6 +13,8 @@
         <div>
           <RoomTile :room="getActiveRoom()" active/>
           <RoomTile v-for="room in rooms.filter(r => !r.active)" :key="room.id" :room="room"/>
+
+          <RoomTile :room="null" title="Create Room" subtitle="Create a new room" icon="plus" />
         </div>
 
       </div>
