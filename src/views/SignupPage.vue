@@ -1,10 +1,15 @@
 <template>
   <div class="container">
     <div class="card">
-      <div class="title">Login</div>
+      <div class="title">Signup</div>
       <div class="subtitle">
-        Don't have an account? Signup <router-link :to="{ name: 'signup'}" style="color: black; text-decoration: underline">here</router-link>.
+        Already have an account? Login
+        <router-link :to="{ name: 'login'}" style="color: black; text-decoration: underline">here</router-link>
+        .
       </div>
+
+      <label for="username">Username</label>
+      <input type="text" id="username" ref="username">
 
       <label for="email">Email</label>
       <input type="text" id="email" ref="email">
@@ -12,7 +17,7 @@
       <label for="password">Password</label>
       <input type="password" id="password" ref="password">
 
-      <button @click="login">Submit</button>
+      <button @click="signup()">Submit</button>
     </div>
   </div>
 </template>
@@ -21,25 +26,19 @@
 
 import { Ref, ref } from "vue";
 import feathersClient, { JWTPayload } from "../feathers-client";
-import { useRouter } from "vue-router";
 
+const username: Ref<HTMLInputElement | null> = ref(null);
 const email: Ref<HTMLInputElement | null> = ref(null);
 const password: Ref<HTMLInputElement | null> = ref(null);
 
-const router = useRouter();
-
-async function login() {
-  await feathersClient.authenticate({
-    strategy: 'local',
+async function signup() {
+  await feathersClient.service("users").create({
+    username: username.value?.value,
     email: email.value?.value,
     password: password.value?.value,
   } as JWTPayload).then(() => {
-    console.log("Logged in!");
-    router.push({
-      name: "chat",
-    });
-
-  }).catch(e => console.error(e));
+    console.log("Account created!");
+  }).catch((e) => console.error("err: ", e));
 }
 </script>
 

@@ -11,4 +11,20 @@ const feathersClient = feathers();
 feathersClient.configure(socketio(socket));
 feathersClient.configure(authentication());
 
+export interface DatabaseEntry {
+    id: number;
+}
+
+export interface NullableDatabaseEntry {
+    id?: number;
+}
+
+
+export interface JWTPayload {
+    strategy?: 'local' | 'jwt';
+    username: string;
+    email: string;
+    password: string;
+}
+
 export default feathersClient;

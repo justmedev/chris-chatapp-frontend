@@ -1,15 +1,14 @@
 <template>
-  <v-app>
-    <v-main>
-      <MainContainer>
-        <router-view/>
-      </MainContainer>
-    </v-main>
-  </v-app>
+  <Navbar/>
+  <main>
+    <div class="container">
+      <router-view/>
+    </div>
+  </main>
 </template>
 
 <script setup lang="ts">
-import MainContainer from "./components/MainContainer.vue";
+import Navbar from "./components/Navbar.vue";
 </script>
 
 <style scoped lang="scss">
