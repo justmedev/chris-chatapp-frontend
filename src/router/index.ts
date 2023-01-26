@@ -16,7 +16,7 @@ const routes: RouteRecordRaw[] = [
     component: ChatPage,
   },
   {
-    path: '/signup',
+    path: '/login',
     name: 'login',
     component: LoginPage,
   },
