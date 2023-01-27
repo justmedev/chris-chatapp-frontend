@@ -24,7 +24,7 @@ const props = withDefaults(defineProps<{
   icon?: Icons,
 
   room: Room | null,
-  active: boolean,
+  active?: boolean,
 }>(), {
   active: false,
   icon: 'arrow-right',

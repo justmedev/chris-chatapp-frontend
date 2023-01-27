@@ -51,13 +51,12 @@ const router = createRouter({
 
 router.beforeEach(async (to, from, next) => {
   if ((to as unknown as RouteRecordRawWithMeta).meta?.requiresAuth) {
-    await feathersClient.authenticate({
-      strategy: 'jwt',
-    })
+    await feathersClient.authenticate()
       .then(() => next())
       .catch(() => router.replace({ name: Route.LOGIN, query: { redirect: to.path } }));
+  } else {
+    next();
   }
-  next();
 });
 
 export default router;
