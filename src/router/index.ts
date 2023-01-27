@@ -4,6 +4,7 @@ import ChatPage from '@/views/ChatPage.vue';
 import LoginPage from '@/views/LoginPage.vue';
 import SignupPage from '@/views/SignupPage.vue';
 import feathersClient from '@/feathers-client';
+import { provide } from "vue";
 
 export enum Route {
   HOME = 'home',

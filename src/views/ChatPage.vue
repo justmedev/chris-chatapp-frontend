@@ -4,7 +4,7 @@
       <div class="account-container-outer">
         <div class="account-container">
           <img src="../assets/placeholder.jpg" alt="account icon">
-          <span>Justme</span>
+          <span>{{ user }}}</span>
         </div>
 
         <button @click="logout">
@@ -30,13 +30,15 @@ import { Ref, ref } from 'vue';
 import RoomTile from '@/components/RoomTile.vue';
 import { Room } from '@/types/room';
 import Chat from '@/components/Chat.vue';
-import feathersClient from "@/feathers-client";
+import feathersClient, { useUser } from "@/feathers-client";
 import { useRouter } from "vue-router";
 import { Route } from '@/router';
+import { DatabaseEntry } from "@/types/generic";
 
 const router = useRouter();
+const user = useUser();
 
-const rooms: Ref<Room[]> = ref([
+const rooms: Ref<DatabaseEntry<Room>[]> = ref([
   {
     active: false,
     name: '123',
@@ -44,16 +46,16 @@ const rooms: Ref<Room[]> = ref([
     members: 1,
     online: [
       {
-        name: 'Ilja',
-        uuid: '1',
+        username: 'Ilja',
+        email: '1',
       },
       {
-        name: 'Jakob',
-        uuid: '2',
+        username: 'Jakob',
+        email: '1',
       },
       {
-        name: 'Chris',
-        uuid: '3',
+        username: 'Chris',
+        email: '1',
       },
     ],
   },
@@ -71,32 +73,32 @@ const rooms: Ref<Room[]> = ref([
     members: 20,
     online: [
       {
-        name: 'Usman',
-        uuid: '',
+        username: 'Usman',
+        email: '',
       },
       {
-        name: 'Busman',
-        uuid: '',
+        username: 'Busman',
+        email: '',
       },
       {
-        name: 'Mussman',
-        uuid: '',
+        username: 'Mussman',
+        email: '',
       },
       {
-        name: 'Kussmann',
-        uuid: '',
+        username: 'Kussmann',
+        email: '',
       },
       {
-        name: 'Lustmann',
-        uuid: '',
+        username: 'Lustmann',
+        email: '',
       },
       {
-        name: 'Coolmann',
-        uuid: '',
+        username: 'Coolmann',
+        email: '',
       },
       {
-        name: 'Flussmann',
-        uuid: '',
+        username: 'Flussmann',
+        email: '',
       },
 
     ],

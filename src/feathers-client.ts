@@ -4,6 +4,7 @@ import socketio from '@feathersjs/socketio-client';
 import io from 'socket.io-client';
 import authentication from '@feathersjs/authentication-client';
 import config from '../config';
+import { DatabaseEntry, User } from "@/types/generic";
 
 const socket = io(config.backend);
 const feathersClient = feathers();
@@ -12,12 +13,16 @@ const feathersClient = feathers();
 feathersClient.configure(socketio(socket));
 feathersClient.configure(authentication());
 
-export interface DatabaseEntry {
-    id: number;
+export async function getUser(): Promise<User | null> {
+    const authObj = await feathersClient.get('authentication');
+    if (authObj) return authObj.user;
+    return null;
 }
 
-export interface NullableDatabaseEntry {
-    id?: number;
+export async function useUser(): Promise<User> {
+    const u = await getUser();
+    if (u === null) throw new Error("Unable to require user. Did you mean to call the non-nullsafe getUser()?");
+    return u;
 }
 
 export interface JWTPayload {
@@ -25,6 +30,12 @@ export interface JWTPayload {
     username: string;
     email: string;
     password: string;
+}
+
+export interface AuthenticationObject {
+    accessToken: string;
+    user: DatabaseEntry<User>;
+    authentication: JWTPayload;
 }
 
 export default feathersClient;
