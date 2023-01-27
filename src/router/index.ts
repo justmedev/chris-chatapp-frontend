@@ -5,7 +5,7 @@ import LoginPage from '@/views/LoginPage.vue';
 import SignupPage from '@/views/SignupPage.vue';
 import feathersClient from '@/feathers-client';
 
-enum Route {
+export enum Route {
   HOME = 'home',
   LOGIN = 'login',
   SIGNUP = 'signup',

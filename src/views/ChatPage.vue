@@ -30,6 +30,11 @@ import { Ref, ref } from 'vue';
 import RoomTile from '@/components/RoomTile.vue';
 import { Room } from '@/types/room';
 import Chat from '@/components/Chat.vue';
+import feathersClient from "@/feathers-client";
+import { useRouter } from "vue-router";
+import { Route } from '@/router';
+
+const router = useRouter();
 
 const rooms: Ref<Room[]> = ref([
   {
@@ -98,9 +103,11 @@ const rooms: Ref<Room[]> = ref([
   },
 ]);
 
-function logout() {
-  // TODO: Actually logout and send user to home without token
-  console.log('Abmelden');
+async function logout() {
+  await feathersClient.logout();
+  await router.push({
+    name: Route.HOME,
+  });
 }
 
 function getActiveRoom() {
