@@ -15,8 +15,8 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { Room } from '../types/room';
-import { Icons } from '../types/generic';
+import { Room } from '@/types/room';
+import { Icons } from '@/types/generic';
 
 const props = withDefaults(defineProps<{
   title?: string,

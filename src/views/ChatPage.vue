@@ -27,9 +27,9 @@
 
 <script setup lang="ts">
 import { Ref, ref } from 'vue';
-import RoomTile from '../components/RoomTile.vue';
-import { Room } from '../types/room';
-import Chat from '../components/Chat.vue';
+import RoomTile from '@/components/RoomTile.vue';
+import { Room } from '@/types/room';
+import Chat from '@/components/Chat.vue';
 
 const rooms: Ref<Room[]> = ref([
   {

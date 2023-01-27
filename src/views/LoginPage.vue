@@ -5,9 +5,11 @@
         Login
       </div>
       <div class="subtitle">
-        Don't have an account? Signup <router-link :to="{ name: 'signup' }" style="color: black; text-decoration: underline">
+        Don't have an account? Signup
+        <router-link :to="{ name: 'signup' }" style="color: black; text-decoration: underline">
           here
-        </router-link>.
+        </router-link>
+        .
       </div>
 
       <label for="email">Email</label>
@@ -24,10 +26,9 @@
 </template>
 
 <script lang="ts" setup>
-
 import { Ref, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import feathersClient, { JWTPayload } from '../feathers-client';
+import feathersClient, { JWTPayload } from '@/feathers-client';
 
 const email: Ref<HTMLInputElement | null> = ref(null);
 const password: Ref<HTMLInputElement | null> = ref(null);

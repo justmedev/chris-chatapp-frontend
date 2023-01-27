@@ -31,7 +31,7 @@
 <script lang="ts" setup>
 
 import { Ref, ref } from 'vue';
-import feathersClient, { JWTPayload } from '../feathers-client';
+import feathersClient, { JWTPayload } from '@/feathers-client';
 
 const username: Ref<HTMLInputElement | null> = ref(null);
 const email: Ref<HTMLInputElement | null> = ref(null);

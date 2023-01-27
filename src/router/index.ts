@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
-import HomePage from '../views/HomePage.vue';
-import ChatPage from '../views/ChatPage.vue';
-import LoginPage from '../views/LoginPage.vue';
-import SignupPage from '../views/SignupPage.vue';
-import feathersClient from '../feathers-client';
+import HomePage from '@/views/HomePage.vue';
+import ChatPage from '@/views/ChatPage.vue';
+import LoginPage from '@/views/LoginPage.vue';
+import SignupPage from '@/views/SignupPage.vue';
+import feathersClient from '@/feathers-client';
 
 enum Route {
   HOME = 'home',
